@@ -42,25 +42,22 @@ a:active {
 color: #489c79;
 }
 
-%button-shared {
+.button, button {
   border: none;
   display: inline-block;
   font-family: inherit;
+  background-color: var(--primary-color);
   color: white;
   text-decoration: none;
   padding: 10px;
   border-radius: 3px;
-  transition: 0.2s opacity;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  &:hover, :focus {
-    cursor: pointer;
-    opacity: 0.8;
-  }
+  transition: 0.2s opacity;
 }
 
-.button {
-  @extend %button-shared;
-  background-color: var(--primary-color);
+button:hover, button:focus, .button:hover, .button:focus {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 * {
@@ -85,15 +82,11 @@ color: #489c79;
 
 .navigation-list {
   list-style-type: none;
+}
 
-    li {
-      display: inline-block;
-      margin-left: 15px;
-
-    .navigation-list__item--active {
-      text-decoration: none;
-    }
-  }
+.navigation-list li {
+  display: inline-block;
+  margin-left: 15px;
 }
 
 .profile {
