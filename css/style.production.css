@@ -43,39 +43,27 @@ a:active {
 color: #489c79;
 }
 
+%button-shared {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  -webkit-transition: 0.2s opacity;
+  -o-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  &:hover, :focus {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+}
+
 .button {
-  border: none;
-  display: inline-block;
-  font-family: inherit;
+  @extend %button-shared;
   background-color: #357b70;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 3px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  -webkit-transition: 0.2s opacity;
-  -o-transition: 0.2s opacity;
-  transition: 0.2s opacity;
-}
-
-button {
-  border: none;
-  display: inline-block;
-  font-family: inherit;
-  background-color: #357b70;
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 3px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  -webkit-transition: 0.2s opacity;
-  -o-transition: 0.2s opacity;
-  transition: 0.2s opacity;
-}
-
-button:hover, button:focus, .button:hover, .button:focus {
-  cursor: pointer;
-  opacity: 0.8;
 }
 
 * {
@@ -107,11 +95,15 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 .navigation-list {
   list-style-type: none;
-}
 
-.navigation-list li {
-  display: inline-block;
-  margin-left: 15px;
+    li {
+      display: inline-block;
+      margin-left: 15px;
+
+    .navigation-list__item--active {
+      text-decoration: none;
+    }
+  }
 }
 
 .profile {
