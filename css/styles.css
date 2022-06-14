@@ -42,22 +42,25 @@ a:active {
 color: #489c79;
 }
 
-.button, button {
+%button-shared {
   border: none;
   display: inline-block;
   font-family: inherit;
-  background-color: var(--primary-color);
   color: white;
   text-decoration: none;
   padding: 10px;
   border-radius: 3px;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
   transition: 0.2s opacity;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  &:hover, :focus {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 }
 
-button:hover, button:focus, .button:hover, .button:focus {
-  cursor: pointer;
-  opacity: 0.8;
+.button {
+  @extend %button-shared;
+  background-color: var(--primary-color);
 }
 
 * {
@@ -82,11 +85,15 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 .navigation-list {
   list-style-type: none;
-}
 
-.navigation-list li {
-  display: inline-block;
-  margin-left: 15px;
+    li {
+      display: inline-block;
+      margin-left: 15px;
+
+    .navigation-list__item--active {
+      text-decoration: none;
+    }
+  }
 }
 
 .profile {
